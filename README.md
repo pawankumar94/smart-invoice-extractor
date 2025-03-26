@@ -31,10 +31,6 @@ Watch how easy it is to extract data from your invoices:
 - **Enable Automation**: Feed extracted data into workflows and business systems
 - **Adapt to New Formats**: Create custom schemas for different document types
 
-## Screenshots
-
-*Add screenshots of your application here*
-
 ## Getting Started
 
 ### Prerequisites
