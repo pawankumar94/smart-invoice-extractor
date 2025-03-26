@@ -1,0 +1,733 @@
+/* 
+   OCR Invoice App - Modern Professional Stylesheet
+   Based on the article's recommendations for a clean, intuitive interface
+*/
+
+/* Custom color variables based on article */
+:root {
+  --primary-color: #4361ee;
+  --primary-light: #eef1ff;
+  --secondary-color: #3f37c9;
+  --success-color: #4caf50;
+  --warning-color: #ff9800;
+  --danger-color: #f44336;
+  --text-color: #333333;
+  --text-secondary: #555555;
+  --background-color: #f9fafb;
+  --card-background: #ffffff;
+  --border-color: #e0e0e0;
+  --accent-color: #4895ef;
+  --shadow-light: 0 2px 5px rgba(0,0,0,0.04);
+  --shadow-medium: 0 4px 12px rgba(0,0,0,0.08);
+  --border-radius: 8px;
+}
+
+/* Reset and base styles */
+html {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+}
+
+/* Main container styles */
+.stApp {
+  background-color: var(--background-color);
+}
+
+.main .block-container {
+  padding: 2rem 1rem;
+  max-width: 1200px;
+}
+
+/* Typography */
+h1 {
+  color: var(--primary-color);
+  font-weight: 700;
+  font-size: 2.25rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  color: var(--text-color);
+  font-weight: 600;
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+  letter-spacing: -0.015em;
+}
+
+h3 {
+  color: var(--text-color);
+  font-weight: 600;
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+p {
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* Sidebar styling */
+.sidebar .sidebar-content {
+  background-color: var(--card-background);
+  border-right: 1px solid var(--border-color);
+}
+
+/* Card containers */
+.card {
+  background-color: var(--card-background);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-light);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--border-color);
+  transition: all 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-medium);
+}
+
+/* Streamlit specific overrides */
+/* Form elements */
+[data-testid="stTextInput"] > div > div > input,
+[data-testid="stTextArea"] > div > div > textarea {
+  background-color: var(--card-background);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 0.75rem;
+  transition: all 0.2s ease;
+  color: var(--text-color) !important;
+}
+
+[data-testid="stTextInput"] > div > div > input:focus,
+[data-testid="stTextArea"] > div > div > textarea:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px var(--primary-light);
+}
+
+/* Select box fixes for visibility */
+[data-testid="stSelectbox"] > div[data-baseweb="select"] > div {
+  background-color: var(--card-background);
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+}
+
+[data-testid="stSelectbox"] div[data-baseweb="select"] div[data-baseweb="popover"] {
+  background-color: var(--card-background);
+  z-index: 999 !important;
+}
+
+[data-testid="stSelectbox"] div[data-baseweb="select"] div[data-baseweb="popover"] li {
+  color: var(--text-color);
+}
+
+[data-testid="stSelectbox"] div[data-baseweb="select"] div[data-baseweb="popover"] li:hover {
+  background-color: var(--primary-light);
+}
+
+[data-testid="stSelectbox"] div[data-baseweb="select"] span {
+  color: var(--text-color) !important;
+  font-weight: 400;
+  font-size: 0.95rem;
+}
+
+/* Button styling */
+[data-testid="stButton"] > button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 0.6rem 1.5rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+[data-testid="stButton"] > button:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-medium);
+}
+
+/* Secondary button */
+.secondary-button [data-testid="stButton"] > button {
+  background-color: white;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+}
+
+.secondary-button [data-testid="stButton"] > button:hover {
+  background-color: var(--primary-light);
+}
+
+/* File uploader */
+[data-testid="stFileUploader"] {
+  background-color: var(--card-background);
+  border: 2px dashed var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+}
+
+[data-testid="stFileUploader"]:hover {
+  border-color: var(--primary-color);
+}
+
+/* Tab styling */
+[data-testid="stTabs"] {
+  background-color: transparent;
+}
+
+[data-testid="stTabs"] > div:first-child {
+  background-color: transparent;
+  gap: 8px;
+}
+
+[data-testid="stTabs"] [role="tab"] {
+  color: var(--text-color);
+  background-color: var(--card-background);
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+  padding: 0.75rem 1.25rem;
+  font-weight: 500;
+  border: 1px solid var(--border-color);
+  border-bottom: none;
+}
+
+[data-testid="stTabs"] [role="tab"] p {
+  color: var(--text-color) !important;
+  font-weight: 500 !important;
+  font-size: 0.95rem !important;
+}
+
+[data-testid="stTabs"] [role="tab"][aria-selected="true"] {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+[data-testid="stTabs"] [role="tab"][aria-selected="true"] p {
+  color: white !important;
+}
+
+[data-testid="stTabs"] [role="tabpanel"] {
+  background-color: var(--card-background);
+  border: 1px solid var(--border-color);
+  border-radius: 0 var(--border-radius) var(--border-radius) var(--border-radius);
+  padding: 1.5rem;
+}
+
+/* Dataframe styling */
+[data-testid="stDataFrame"] {
+  background-color: var(--card-background);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-light);
+  overflow: hidden;
+}
+
+[data-testid="stDataFrame"] th {
+  background-color: var(--primary-light);
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+/* Alerts and messages */
+.success-box {
+  background-color: #edf7ed;
+  border-left: 4px solid var(--success-color);
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+  color: #1e4620;
+}
+
+.info-box {
+  background-color: #e6f4ff;
+  border-left: 4px solid var(--primary-color);
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+  color: #0c53b7;
+}
+
+.warning-box {
+  background-color: #fff7db;
+  border-left: 4px solid var(--warning-color);
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+  color: #7a4f01;
+}
+
+.error-box {
+  background-color: #ffe9e9;
+  border-left: 4px solid var(--danger-color);
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+  color: #7a0916;
+}
+
+/* Results display */
+.results-container {
+  background-color: var(--card-background);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-light);
+  padding: 1.5rem;
+  border: 1px solid var(--border-color);
+  margin-top: 1.5rem;
+}
+
+.results-header {
+  color: var(--primary-color);
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.field-group {
+  margin-bottom: 1.5rem;
+}
+
+.field-label {
+  font-weight: 600;
+  color: var(--text-color);
+  font-size: 0.9rem;
+}
+
+.field-value {
+  color: var(--text-color);
+  font-size: 1rem;
+}
+
+/* Line items table */
+.line-items-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+
+.line-items-table th {
+  background-color: var(--primary-light);
+  color: var(--primary-color);
+  font-weight: 600;
+  padding: 0.75rem;
+  text-align: left;
+}
+
+.line-items-table td {
+  padding: 0.75rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.line-items-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Schema editor improvements for JSON-based approach */
+.json-editor {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  padding: 0.75rem;
+  background-color: #f8f9fa;
+  white-space: pre;
+}
+
+/* JSON editor and preview area styling */
+[data-testid="stTextArea"] textarea {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace !important;
+  font-size: 0.9rem !important;
+  background-color: #f8f9fa !important;
+  color: var(--text-color) !important;
+}
+
+/* Schema preview styling */
+.schema-preview {
+  background-color: var(--card-background);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+/* Schema tree visualization */
+.schema-tree {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  line-height: 1.6;
+  padding-left: 1rem;
+}
+
+/* Improve expander for schema preview */
+[data-testid="stExpander"] {
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow-light);
+  overflow: hidden;
+}
+
+[data-testid="stExpander"][data-expanded="true"] > div:first-child {
+  background-color: var(--primary-light);
+  border-bottom: 1px solid var(--border-color);
+}
+
+[data-testid="stExpander"][data-expanded="false"] > div:first-child {
+  background-color: var(--card-background);
+}
+
+[data-testid="stExpander"] details summary p {
+  color: var(--primary-color) !important;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+/* Better styling for tabs in schema editor */
+[data-testid="stTabs"] [data-baseweb="tab-list"] {
+  gap: 0 !important;
+}
+
+[data-testid="stTabs"] [data-baseweb="tab"] {
+  border-radius: var(--border-radius) var(--border-radius) 0 0 !important;
+  border: 1px solid var(--border-color) !important;
+  margin-right: 4px !important;
+}
+
+[data-testid="stTabs"] [data-baseweb="tab"][aria-selected="true"] {
+  background-color: var(--primary-color) !important;
+  color: white !important;
+}
+
+[data-testid="stTabs"] [data-baseweb="tab-highlight"] {
+  display: none !important;
+}
+
+/* Data frame styling for the visual editor */
+[data-testid="stDataFrame"] {
+  margin-top: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+[data-testid="stDataFrame"] [data-testid="column-header"] {
+  background-color: var(--primary-light);
+  color: var(--primary-color);
+  font-weight: 600;
+  padding: 0.5rem 0.75rem;
+}
+
+[data-testid="stDataFrame"] [data-testid="column-header"]:first-child {
+  padding-left: 1rem;
+}
+
+[data-testid="stDataFrame"] [data-testid="dataframe-cell"] {
+  padding: 0.5rem 0.75rem;
+  border-color: var(--border-color);
+}
+
+/* Schema editor improvements for tabular layout */
+.schema-field-row {
+  background-color: var(--card-background);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 0.75rem 0.5rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.schema-field-row:hover {
+  border-color: var(--primary-color);
+  box-shadow: var(--shadow-light);
+}
+
+.field-header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.field-indent-marker {
+  position: absolute;
+  left: -10px;
+  top: 0;
+  bottom: 0;
+  width: 12px;
+  border-left: 2px solid var(--primary-color);
+  border-bottom: 2px solid var(--primary-color);
+  border-bottom-left-radius: 8px;
+}
+
+/* Fix label hiding in the tabular format */
+.schema-field-row [data-testid="stVerticalBlock"] div:has(> label) {
+  display: none !important;
+}
+
+/* Compact selectors for the tabular layout */
+.schema-field-row [data-testid="stSelectbox"] > div,
+.schema-field-row [data-testid="stTextInput"] > div {
+  margin-bottom: 0 !important;
+}
+
+/* Better checkbox alignment */
+.schema-field-row [data-testid="stCheckbox"] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+/* Table header styling */
+[data-testid="stHorizontalBlock"]:has([data-testid="stMarkdown"] strong) {
+  background-color: var(--primary-light);
+  padding: 0.5rem;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+  margin-bottom: 0.5rem;
+  border: 1px solid var(--border-color);
+}
+
+[data-testid="stHorizontalBlock"] [data-testid="stMarkdown"] strong {
+  color: var(--primary-color) !important;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* Action buttons styling in schema editor */
+.schema-field-row [data-testid="baseButton-secondary"] {
+  min-height: 32px !important;
+  height: 32px !important;
+  padding: 0px 12px !important;
+  background-color: var(--primary-light) !important;
+  color: var(--primary-color) !important;
+  font-weight: bold !important;
+}
+
+.schema-field-row [data-testid="baseButton-secondary"]:hover {
+  background-color: var(--primary-color) !important;
+  color: white !important;
+}
+
+/* Fix text rendering in various components */
+[data-testid="stText"], 
+[data-testid="stMarkdown"] p, 
+[data-testid="stMarkdown"] h1, 
+[data-testid="stMarkdown"] h2, 
+[data-testid="stMarkdown"] h3,
+[data-testid="stDataFrame"] {
+  color: var(--text-color) !important;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+/* Make sure schema editor fields are visible */
+.schema-field-row [data-testid="stVerticalBlock"] {
+  width: 100%;
+}
+
+/* Enhance object field type styling */
+.stSelectbox {
+  min-width: 100px;
+}
+
+/* Fix multiselect dropdowns where text isn't visible */
+[data-baseweb="select"] [data-baseweb="tag"] {
+  background-color: var(--primary-light) !important;
+  color: var(--text-color) !important;
+}
+
+[data-baseweb="select"] [data-baseweb="tag"] span {
+  color: var(--text-color) !important;
+}
+
+/* Make dropdown popup text visible */
+[data-baseweb="menu"] [role="option"] {
+  color: var(--text-color) !important;
+}
+
+[data-baseweb="menu"] [role="option"]:hover {
+  background-color: var(--primary-light) !important;
+}
+
+/* Improve table styling in results */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 0.9rem;
+}
+
+table th {
+  background-color: var(--primary-light);
+  color: var(--primary-color);
+  font-weight: 600;
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+table td {
+  padding: 0.75rem;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-color);
+}
+
+/* Fix expander styling */
+[data-testid="stExpander"] {
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+[data-testid="stExpander"] > div:first-child {
+  border-radius: 0;
+  border-bottom: 1px solid var(--border-color);
+  background-color: var(--primary-light);
+}
+
+[data-testid="stExpander"] details summary p {
+  color: var(--primary-color) !important;
+  font-weight: 500;
+}
+
+/* Fix JSON display in expanders */
+[data-testid="stJson"] {
+  background-color: #f8f9fa;
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  max-height: 400px;
+  overflow-y: auto;
+  border: 1px solid var(--border-color);
+  font-family: monospace;
+  color: var(--text-color) !important;
+}
+
+/* Fix checkbox styling */
+[data-testid="stCheckbox"] label p {
+  color: var(--text-color) !important;
+}
+
+/* Custom tooltip styles */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: help;
+}
+
+.tooltip .tooltip-text {
+  visibility: hidden;
+  background-color: var(--text-color);
+  color: #fff;
+  text-align: center;
+  padding: 5px 10px;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 0.85rem;
+}
+
+.tooltip:hover .tooltip-text {
+  visibility: visible;
+  opacity: 0.9;
+}
+
+/* Fix text in selectbox dropdowns */
+div[data-baseweb="select"] span {
+  color: var(--text-color) !important;
+}
+
+div[data-baseweb="select"] span span {
+  color: var(--text-color) !important;
+}
+
+div[data-baseweb="popover"] ul li {
+  color: var(--text-color) !important;
+}
+
+div[data-baseweb="popover"] ul li:hover {
+  background-color: var(--primary-light) !important;
+}
+
+/* Fix the font and text color in select boxes specifically */
+div[data-baseweb="select"] div[role="combobox"],
+div[data-baseweb="select"] div[role="presentation"] {
+  color: var(--text-color) !important;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+/* Ensure dropdown items are visible */
+div[data-baseweb="select"] ul li {
+  color: var(--text-color) !important;
+  background: var(--card-background) !important;
+}
+
+/* Extraction History specific styles */
+[data-testid="stTabs"] [role="tabpanel"]:has(h1:contains("Extraction History")) h1 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+  border-bottom: 2px solid var(--primary-light);
+  padding-bottom: 0.5rem;
+}
+
+/* File entry in extraction history */
+[data-testid="stTabs"] [role="tabpanel"]:has(h1:contains("Extraction History")) h3 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-color);
+  background-color: var(--primary-light);
+  padding: 0.75rem 1rem;
+  border-radius: var(--border-radius);
+  margin-top: 1rem;
+  margin-bottom: 0.75rem;
+  border-left: 3px solid var(--primary-color);
+}
+
+/* History entries container */
+[data-testid="stTabs"] [role="tabpanel"]:has(h1:contains("Extraction History")) > div > div {
+  background-color: var(--card-background);
+  border-radius: var(--border-radius);
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Show Results button in extraction history */
+[data-testid="stTabs"] [role="tabpanel"]:has(h1:contains("Extraction History")) [data-testid="stButton"] > button {
+  background-color: var(--primary-color);
+  font-size: 0.9rem;
+  padding: 0.4rem 1.2rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Hide Results button in extraction history */
+[data-testid="stTabs"] [role="tabpanel"]:has(h1:contains("Extraction History")) [data-testid="stButton"]:has(button:contains("Hide Results")) > button {
+  background-color: var(--text-secondary);
+}
+
+/* Horizontal divider in history */
+[data-testid="stTabs"] [role="tabpanel"]:has(h1:contains("Extraction History")) hr {
+  margin: 1.5rem 0;
+  border-color: var(--border-color);
+  opacity: 0.5;
+} 
